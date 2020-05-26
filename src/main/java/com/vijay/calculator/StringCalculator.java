@@ -1,6 +1,7 @@
 package com.vijay.calculator;
 
 import java.util.Arrays;
+import java.util.regex.*;
 
 public class StringCalculator {
 
@@ -31,10 +32,20 @@ public class StringCalculator {
 		String[] number = null;
 		String temp = null;
 
-        if (numbers.startsWith("//")) {
-			String delimiter = numbers.substring(2, 3);
-			temp = numbers.substring(4);
-			number = temp.split("["+delimiter+"\n"+"]");
+		Pattern p = Pattern.compile("(//\\[(.+)\\]\n).*");
+		Matcher m = p.matcher(numbers);
+
+        if (m.matches()) {
+			String sub = m.group(1);
+			numbers = numbers.replace(sub, "");
+			String delimiter = m.group(2);
+			if (delimiter.charAt(0) == '*') {
+				numbers = numbers.replace(delimiter, "#");
+				number = numbers.split("#");
+			}
+			else {
+				number = numbers.split(delimiter);
+			}
 		}
         else {
 			number = numbers.split("[,\n]");
