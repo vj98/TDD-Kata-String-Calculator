@@ -53,7 +53,7 @@ public class StringCalculator {
         	throw new Exception(errorMessage);
 		}
 
-		sum = Arrays.stream(number).mapToInt(Integer::parseInt).sum();
+		sum = Arrays.stream(number).mapToInt(Integer::parseInt).filter(x -> x <= 1000).sum();
         return sum;
     }
 }

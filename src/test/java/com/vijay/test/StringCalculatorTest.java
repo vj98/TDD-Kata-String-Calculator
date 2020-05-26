@@ -105,4 +105,14 @@ public class StringCalculatorTest {
         assertEquals(7, result);
         assertEquals(9, stringCalculator.GetCalledCount());
     }
+
+    @Order(10)
+    @DisplayName("testAddIgnoreGreaterThanThousand method")
+    @Test
+    public void testAddIgnoreGreaterThanThousand() throws Exception {
+        String param = "1,2,4,1000,1001";
+        Integer result = stringCalculator.Add(param);
+
+        assertEquals(1007, result);
+    }
 }
