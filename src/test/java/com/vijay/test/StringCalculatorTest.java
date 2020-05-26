@@ -134,4 +134,13 @@ public class StringCalculatorTest {
         Integer result = stringCalculator.Add(param);
         assertEquals(7, result);
     }
+
+    @Order(13)
+    @DisplayName("testAddAllowMultipleDelimiterWithLongetThanOneChar method")
+    @Test
+    public void testAddAllowMultipleDelimiterWithLongetThanOneChar() throws Exception {
+        String param = "//[***][%%%]\n1***2%%%4";
+        Integer result = stringCalculator.Add(param);
+        assertEquals(7, result);
+    }
 }
