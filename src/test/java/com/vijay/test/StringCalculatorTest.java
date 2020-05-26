@@ -5,6 +5,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class StringCalculatorTest {
 
@@ -61,5 +62,17 @@ public class StringCalculatorTest {
         Integer result = stringCalculator.Add(param);
 
         assertEquals(20, result);
+    }
+
+    @DisplayName("testAddOneNegativeNumberException method")
+    @Test
+    public void testAddOneNegativeNumberException() throws Exception {
+        String param = "-1";
+
+        Throwable exception = assertThrows(Exception.class, () -> {
+            stringCalculator.Add(param);
+        });
+
+        assertEquals("negatives not allowed: -1", exception.getMessage());
     }
 }

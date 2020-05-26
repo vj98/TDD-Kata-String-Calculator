@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class StringCalculator {
 
-    public int Add(String numbers) {
+    public int Add(String numbers) throws Exception {
         if (numbers.length() == 0) {
             return 0;
         }
@@ -20,6 +20,12 @@ public class StringCalculator {
 		}
         else {
 			number = numbers.split("[,\n]");
+		}
+
+        for (int i = 0; i < number.length; i++) {
+        	if (number[i].charAt(0) == '-') {
+				throw new Exception("negatives not allowed: " + number[i]);
+			}
 		}
 
 		sum = Arrays.stream(number).mapToInt(Integer::parseInt).sum();
