@@ -4,7 +4,25 @@ import java.util.Arrays;
 
 public class StringCalculator {
 
+	private static int countAddMethodOccurence = 0;
+
+	/**
+	 * This method returns number of times Add() method invoked
+	 * @return int
+	 */
+	public int GetCalledCount() {
+		return countAddMethodOccurence;
+	}
+
+	/**
+	 * Parses the integer from the string from the delimiters and return sum of the integer.
+	 * In case of negative numbers returns exception.
+	 * @param numbers
+	 * @return int
+	 * @throws Exception
+	 */
     public int Add(String numbers) throws Exception {
+		++countAddMethodOccurence;
         if (numbers.length() == 0) {
             return 0;
         }
