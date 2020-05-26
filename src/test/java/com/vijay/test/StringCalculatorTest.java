@@ -35,4 +35,13 @@ public class StringCalculatorTest {
 
         assertEquals(3, result);
     }
+
+    @DisplayName("testAddWithUnknownNumber method")
+    @Test
+    public void testAddWithUnknownNumber() throws Exception {
+        String param = "1,2,3,4,10";
+        Integer result = stringCalculator.Add(param);
+
+        assertEquals(20, result);
+    }
 }

@@ -1,17 +1,17 @@
 package com.vijay.calculator;
 
+import java.util.Arrays;
+
 public class StringCalculator {
-	public int Add(String numbers) {
-		if (numbers.length() == 0) {
-			return 0;
-		}
+    public int Add(String numbers) {
+        if (numbers.length() == 0) {
+            return 0;
+        }
 
-		String[] number = numbers.split(",");
+        String[] number = numbers.split(",");
+        Integer sum = 0;
 
-		if (number.length == 1) {
-			return Integer.parseInt(number[0]);
-		}
-
-		return Integer.parseInt(number[0]) + Integer.parseInt(number[1]);
-	}
+        sum = Arrays.stream(number).mapToInt(Integer::parseInt).sum();
+        return sum;
+    }
 }
