@@ -1,0 +1,8 @@
+-------------------------------------------------------------------------------
+Test set: com.vijay.test.StringCalculatorTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 3.175 sec <<< FAILURE! - in com.vijay.test.StringCalculatorTest
+testAdd()  Time elapsed: 2.547 sec  <<< FAILURE!
+org.opentest4j.AssertionFailedError: expected: <1> but was: <0>
+	at com.vijay.test.StringCalculatorTest.testAdd(StringCalculatorTest.java:36)
+
