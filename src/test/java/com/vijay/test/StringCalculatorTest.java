@@ -115,4 +115,23 @@ public class StringCalculatorTest {
 
         assertEquals(1007, result);
     }
+
+    @Order(11)
+    @DisplayName("testAddDelimiterOfAnyLength method")
+    @Test
+    public void testAddDelimiterOfAnyLength() throws Exception {
+        String param = "//[***]\n1***2***4";
+        Integer result = stringCalculator.Add(param);
+
+        assertEquals(7, result);
+    }
+
+    @Order(12)
+    @DisplayName("testAddAllowMultipleDelimiter method")
+    @Test
+    public void testAddAllowMultipleDelimiter() throws Exception {
+        String param = "//[*][%]\n1*2%4";
+        Integer result = stringCalculator.Add(param);
+        assertEquals(7, result);
+    }
 }
