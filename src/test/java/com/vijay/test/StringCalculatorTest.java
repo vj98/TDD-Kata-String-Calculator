@@ -54,4 +54,12 @@ public class StringCalculatorTest {
         assertEquals(20, result);
     }
 
+    @DisplayName("testAddBeginWithDelimiters method")
+    @Test
+    public void testAddBeginWithDelimiters() throws Exception {
+        String param = "//;\n1;2\n3;4\n10";
+        Integer result = stringCalculator.Add(param);
+
+        assertEquals(20, result);
+    }
 }
