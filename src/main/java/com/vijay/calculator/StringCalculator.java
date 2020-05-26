@@ -22,10 +22,17 @@ public class StringCalculator {
 			number = numbers.split("[,\n]");
 		}
 
+        int flag = 0;
+        String errorMessage = "negatives not allowed:";
         for (int i = 0; i < number.length; i++) {
         	if (number[i].charAt(0) == '-') {
-				throw new Exception("negatives not allowed: " + number[i]);
+				errorMessage += " " + number[i];
+				flag = 1;
 			}
+		}
+
+        if (flag == 1) {
+        	throw new Exception(errorMessage);
 		}
 
 		sum = Arrays.stream(number).mapToInt(Integer::parseInt).sum();

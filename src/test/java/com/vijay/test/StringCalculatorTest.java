@@ -75,4 +75,16 @@ public class StringCalculatorTest {
 
         assertEquals("negatives not allowed: -1", exception.getMessage());
     }
+
+    @DisplayName("testAddMultipleNegativeNumberException method")
+    @Test
+    public void testAddMultipleNegativeNumberException() throws Exception {
+        String param = "-1,-2,-4";
+
+        Throwable exception = assertThrows(Exception.class, () -> {
+            stringCalculator.Add(param);
+        });
+
+        assertEquals("negatives not allowed: -1 -2 -4", exception.getMessage());
+    }
 }
