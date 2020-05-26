@@ -44,4 +44,14 @@ public class StringCalculatorTest {
 
         assertEquals(20, result);
     }
+
+    @DisplayName("testAddSupportNewLineSeparator method")
+    @Test
+    public void testAddSupportNewLineSeparator() throws Exception {
+        String param = "1,2\n3,4\n10";
+        Integer result = stringCalculator.Add(param);
+
+        assertEquals(20, result);
+    }
+
 }
